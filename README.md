@@ -54,9 +54,31 @@ MCP tool response and MCP App; no AG-UI endpoint or first-party SDK adapter is
 needed. A2UI's internal dependencies use Zod 3, while the tool schema uses Zod 4
 for JSON Schema generation.
 
-CopilotKit integration remains a separate follow-up: an MCP Apps host can load
-this server-provided app with its embedded A2UI renderer. This example is tested
-using the mcp-use Inspector.
+## Connect CopilotKit
+
+Use CopilotKit's MCP Apps middleware with the public deployment:
+
+```ts
+import { MCPAppsMiddleware } from "@ag-ui/mcp-apps-middleware";
+
+agent.use(new MCPAppsMiddleware({
+  mcpServers: [{
+    type: "http",
+    url: "https://warm-steel-y2d5o.run.mcp-use.com/mcp",
+    serverId: "mcp-use-a2ui",
+  }],
+}));
+```
+
+Keep your existing agent's model configuration and register it with your
+CopilotRuntime. CopilotKit's built-in MCP Apps renderer loads the view in chat.
+For a local runtime, use `http://localhost:3012/mcp`. A hosted runtime needs the
+public URL. No A2UI catalog registration is required in the host: this MCP App
+contains its own A2UI renderer.
+
+See [CopilotKit's MCP Apps guide](https://docs.copilotkit.ai/generative-ui/mcp-apps).
+The deployed tool and resource endpoints have been smoke-tested; end-to-end
+CopilotKit chat validation is pending host configuration.
 
 ## Check and build
 
