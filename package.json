@@ -11,12 +11,13 @@
     "dev": "mcp-use dev",
     "build": "mcp-use build",
     "start": "mcp-use start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/catalog.test.mjs"
   },
   "dependencies": {
     "@a2ui/react": "0.11.0",
     "@a2ui/web_core": "0.10.7",
-    "mcp-use": "2.5.0",
+    "mcp-use": "2.6.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "zod": "^4.4.3"
@@ -34,5 +35,10 @@
     "@a2ui/web_core": {
       "zod": "3.25.76"
     }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manufacts/mcp-use-a2ui-example.git"
   }
 }

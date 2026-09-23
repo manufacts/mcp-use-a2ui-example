@@ -9,6 +9,13 @@ a small component catalog, and one view. A2UI supplies the renderer and local
 data bindings. The server needs no model API key or agent runtime; the host chat
 model generates the tool arguments.
 
+## Live demo
+
+[Open the chat demo](https://inspector.manufact.com/inspector?embedded=true&autoConnect=https%3A%2F%2Fmanufact-a2ui-example.run.mcp-use.com%2Fmcp&embeddedConfig=%7B%22singleTab%22%3Atrue%2C%22defaultTab%22%3A%22chat%22%2C%22visibleTabs%22%3A%5B%22chat%22%5D%7D)
+and ask for a UI.
+
+MCP endpoint: https://manufact-a2ui-example.run.mcp-use.com/mcp
+
 ## Run
 
 Requires Node.js 22.22.2 or later.
@@ -64,7 +71,7 @@ import { MCPAppsMiddleware } from "@ag-ui/mcp-apps-middleware";
 agent.use(new MCPAppsMiddleware({
   mcpServers: [{
     type: "http",
-    url: "https://warm-steel-y2d5o.run.mcp-use.com/mcp",
+    url: "https://manufact-a2ui-example.run.mcp-use.com/mcp",
     serverId: "mcp-use-a2ui",
   }],
 }));
@@ -84,6 +91,7 @@ CopilotKit chat validation is pending host configuration.
 
 ```sh
 npm run typecheck
+npm test
 npm run build
 ```
 
@@ -94,4 +102,4 @@ References: [A2UI React renderer](https://github.com/a2ui-project/a2ui/tree/main
 
 Build with `npm ci && npm run build` and start with `npm start`. The MCP endpoint is `/mcp`. No model API key is required on this server; the connected chat host supplies the model.
 
-Source: [mcp-use A2UI example](https://github.com/mcp-use/mcp-use/tree/codex/a2ui-example/libraries/typescript/packages/server/examples/views/a2ui).
+Source: [mcp-use A2UI example](https://github.com/mcp-use/mcp-use/tree/main/libraries/typescript/packages/server/examples/views/a2ui).
